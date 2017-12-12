@@ -5,6 +5,7 @@ Simple script for notifying your ISPConfig server email users that they are almo
 
 Requirements:
 
+ - Python 2.7+ (not tested on python 3+)
  - Mailer (-> pip install mailer)
  - PyMySQL (-> pip install pymysql)
 
