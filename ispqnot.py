@@ -155,13 +155,12 @@ class QuotaNotifier(object):
     
     def _notify(self):
         if len(self.mailusers) == 0:
-            print("No user found to notify.")
             return
-        subj = "Your mailbox has reached a quota threshold of %s%%" % config['threshold']
+        subj = "Your mailbox has reached a quota threshold"
         body = (
             "I am sorry to inform you that your email account for:\n\n"
             "%s\n\n"
-            "has reached a usage of %s%%. Please take actions before your inbox gets full.\n\n"
+            "has reached a usage of over %s%%. Please take actions before your inbox gets full.\n\n"
             "Sincerely, your email server."
         )
         emailhostname = config['emailhostname']
@@ -200,6 +199,7 @@ if __name__ == "__main__":
             print("WARNING, running in DEMO mode.")
         app = QuotaNotifier()
         app.run()
+        sys.exit(0)
     except KeyboardInterrupt:
         print("Script aborted by user.")
         sys.exit(1)
