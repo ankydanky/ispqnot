@@ -134,7 +134,7 @@ class QuotaNotifier(object):
         return int(stdout.split()[0])
 
     def _isOverThreshold(self, sys_quota, db_quota):
-        if sys_quota >= ((db_quota / 100) * config['threshold']):
+        if int(db_quota) > 0 and sys_quota >= ((db_quota / 100) * config['threshold']):
             return True
         return False
 
